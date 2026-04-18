@@ -284,7 +284,7 @@ const CONFIG = {
       const mail = CONFIG.rsvpMailto || "your-email@example.com";
       window.location.href = "mailto:" + mail + "?subject=" + subject + "&body=" + body;
       if (statusEl) {
-        statusEl.textContent = "Your email app should open. If it does not, add a Web3Forms key in script.js or email us directly.";
+        statusEl.textContent = "";
         statusEl.classList.add("is-success");
       }
     });
