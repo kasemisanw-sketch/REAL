@@ -290,7 +290,7 @@ const CONFIG = {
     });
 
     if (hintEl) {
-      if (CONFIG.web3formsAccessKey) {
+      if (CONFIG.a1a2aae3-4acd-43f5-b95a-fc458a4b8bb6) {
         hintEl.style.display = "none";
       }
     }
