@@ -249,7 +249,7 @@ const CONFIG = {
         }
         try {
           const fd = new FormData(form);
-          fd.set("access_key", CONFIG.web3formsAccessKey);
+          fd.set("a1a2aae3-4acd-43f5-b95a-fc458a4b8bb6", CONFIG.web3formsAccessKey);
           const res = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
             body: fd,
