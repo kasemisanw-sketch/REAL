@@ -5,7 +5,7 @@ const CONFIG = {
   /** ISO datetime for the ceremony in Alexandria (Egypt, UTC+2). Adjust offset if needed. */
   weddingDateIso: "2027-10-10T20:00:00+02:00",
   /** Get a free key at https://web3forms.com — leave empty to use email fallback (mailto). */
-  web3formsAccessKey: "",
+  web3formsAccessKey: "a1a2aae3-4acd-43f5-b95a-fc458a4b8bb6",
   /** Email used only for mailto fallback when Web3Forms key is empty */
   rsvpMailto: "your-email@example.com",
   localStorageWelcomeKey: "samaMedoInvitationOpened-v1",
