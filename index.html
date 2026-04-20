@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sama & Medo — Wedding Celebration, 10 October 2027, Alexandria" />
+  <title>Sama & Medo — Wedding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Welcome overlay (first visit) -->
+  <div id="welcome-overlay" class="welcome-overlay" aria-hidden="true" role="dialog" aria-labelledby="welcome-title">
+    <div class="welcome-overlay__pattern" aria-hidden="true"></div>
+    <div class="welcome-overlay__content">
+      <p class="welcome-overlay__eyebrow">You are invited</p>
+      <h1 id="welcome-title" class="welcome-overlay__names">Sama <span class="ampersand">&</span> Medo</h1>
+      <p class="welcome-overlay__sub">Wedding Celebration · 10 October 2027</p>
+      <button type="button" class="btn btn--welcome" id="welcome-open">
+        <span>Open invitation</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="bg-layer" aria-hidden="true">
+    <canvas id="particles-canvas"></canvas>
+    <div class="bg-layer__glow bg-layer__glow--1"></div>
+    <div class="bg-layer__glow bg-layer__glow--2"></div>
+    <div class="ornament ornament--tl"></div>
+    <div class="ornament ornament--br"></div>
+  </div>
+
+  <button type="button" class="music-toggle" id="music-toggle" aria-pressed="false" aria-label="Toggle background music">
+    <span class="music-toggle__icon music-toggle__icon--off" aria-hidden="true">♪</span>
+    <span class="music-toggle__icon music-toggle__icon--on" aria-hidden="true">♫</span>
+  </button>
+ <audio id="bg-music" loop preload="metadata">
+  <source src="https://files.catbox.moe/z0q34g.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById("bg-music");
+
+  function playMusic() {
+    music.play();
+    document.removeEventListener("click", playMusic);
+  }
+
+  document.addEventListener("click", playMusic);
+</script>
+  <main>
+    <header class="hero" id="hero">
+      <div class="hero__motion" id="hero-motion">
+      <div class="hero__inner">
+        <p class="hero__eyebrow">Together families & frindes </p>
+        <h1 class="hero__title">
+          <span class="hero__name">Sama</span>
+          <span class="hero__ampersand">&</span>
+          <span class="hero__name">Medo</span>
+        </h1>
+        <p class="hero__subtitle">Wedding Celebration</p>
+        <div class="hero__scroll-hint" aria-hidden="true">
+          <span>Scroll</span>
+          <span class="hero__arrow"></span>
+        </div>
+      </div>
+      </div>
+    </header>
+
+    <section class="section section--countdown" id="countdown">
+      <div class="container">
+        <h2 class="section__title reveal" data-reveal>Save the date</h2>
+        <p class="section__lead reveal" data-reveal>Sunday, 10 October 2027 · 8:00 PM</p>
+        <div class="countdown reveal" data-reveal id="countdown-root" aria-live="polite">
+          <div class="countdown__unit">
+            <span class="countdown__digit" data-unit="days">00</span>
+            <span class="countdown__label">Days</span>
+          </div>
+          <div class="countdown__sep" aria-hidden="true">:</div>
+          <div class="countdown__unit">
+            <span class="countdown__digit" data-unit="hours">00</span>
+            <span class="countdown__label">Hours</span>
+          </div>
+          <div class="countdown__sep" aria-hidden="true">:</div>
+          <div class="countdown__unit">
+            <span class="countdown__digit" data-unit="minutes">00</span>
+            <span class="countdown__label">Minutes</span>
+          </div>
+          <div class="countdown__sep" aria-hidden="true">:</div>
+          <div class="countdown__unit">
+            <span class="countdown__digit" data-unit="seconds">00</span>
+            <span class="countdown__label">Seconds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--invite" id="invitation">
+      <div class="container container--narrow">
+        <div class="glass-card reveal" data-reveal>
+          <p class="invite__eyebrow">With love</p>
+          <p class="invite__text">
+            Join us to celebrate the wedding of <strong>Sama</strong> and <strong>Medo</strong> — an evening of joy, music, and memories we will cherish forever.
+          </p>
+          <p class="invite__text invite__text--secondary">
+            Your presence would make our celebration complete.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--details" id="details">
+      <div class="container">
+        <h2 class="section__title reveal" data-reveal>Event details</h2>
+        <div class="details-grid">
+          <article class="detail-card reveal" data-reveal>
+            <div class="detail-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            </div>
+            <h3 class="detail-card__title">Date</h3>
+            <p class="detail-card__text">Sunday, 10 October 2027</p>
+          </article>
+          <article class="detail-card reveal" data-reveal>
+            <div class="detail-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            </div>
+            <h3 class="detail-card__title">Time</h3>
+            <p class="detail-card__text">8:00 PM</p>
+          </article>
+          <article class="detail-card reveal" data-reveal>
+            <div class="detail-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 21s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </div>
+            <h3 class="detail-card__title">WHERE?</h3>
+            <p class="detail-card__text">Alexandria — Sidi Bisher Qibly</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--story" id="story">
+      <div class="container container--narrow">
+        <h2 class="section__title reveal" data-reveal>Our story</h2>
+        <div class="glass-card glass-card--story reveal" data-reveal>
+          <!-- Edit the paragraphs below -->
+          <p class="story__text">
+            I first saw her by chance in a crowded street, everything was loud except that moment.
+She was laughing with her friends, and I don’t know why my eyes just stuck there.
+Later that day, we somehow ended up in the same place again, like life was arranging it.
+I didn’t have a plan, just went and said a simple “إزيك”… and she smiled.
+We started talking about random stuff, nothing important, but it felt different.
+Days passed, and talking to her became part of my routine without even noticing.
+It wasn’t a big dramatic story, just small moments that kept adding up.
+          </p>
+          <p class="story__text">
+            <!-- Add your favourite memory or proposal story here -->
+            <em>[one day I realized… meeting her wasn’t luck]</em>
+          </p>
+          <p class="story__text story__text--closing">
+            it changed something in me
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--gallery" id="gallery">
+      <div class="container">
+        <h2 class="section__title reveal" data-reveal>Gallery</h2>
+        <p class="section__lead reveal" data-reveal>THIS IS US
+        <div class="gallery-grid">
+          <!-- Replace src with your images: e.g. images/photo1.jpg -->
+          <figure class="gallery-item"><img src="https://i.postimg.cc/g04Ngp1q/Screenshot-2026-04-18-at-07-35-23-(JPEG-Image-676-1200-pixels)-Scaled-(77-).png/photo-1519741497674-6114817a863d?w=800&q=80" alt="Wedding couple placeholder 1" loading="lazy" width="800" height="600" /></figure>
+          <figure class="gallery-item"><img src="https://i.postimg.cc/d0n45FgC/jpg.jpg/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Wedding rings placeholder" loading="lazy" width="800" height="600" /></figure>
+          <figure class="gallery-item"><img src="https://i.postimg.cc/5tpnsJDp/Screenshot-2026-04-18-at-07-36-21-(JPEG-Image-720-900-pixels).png/photo-1465495976277-4387d4b0b4c6?w=800&q=80" alt="Celebration placeholder" loading="lazy" width="800" height="600" /></figure>
+          <figure class="gallery-item"><img src="https://i.postimg.cc/Prpfhr4y/Screenshot-2026-04-18-at-08-00-58-(JPEG-Image-735-928-pixels)-Scaled-(99-).png/photo-1522673606160-de0f0c140d66?w=800&q=80" alt="Floral placeholder" loading="lazy" width="800" height="600" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--directions" id="directions">
+      <div class="container container--narrow">
+        <h2 class="section__title reveal" data-reveal>Directions</h2>
+        <div class="glass-card reveal" data-reveal>
+          <p class="directions__text">
+            The celebration will be held in <strong>Alexandria</strong>, at <strong>Sidi Bisher Qibly</strong>. Tap the button below to open the location in Google Maps and plan your route.
+          </p>
+          <a class="btn btn--maps" href="https://go.sqd.link/a8610" target="_blank" rel="noopener noreferrer">
+            <span>Open in Google Maps</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--rsvp" id="rsvp">
+      <div class="container container--narrow">
+        <h2 class="section__title reveal" data-reveal>WILL YOU ATTEND?</h2>
+        <p class="section__lead reveal" data-reveal>Kindly respond by sharing your details below. We cannot wait to celebrate with you.</p>
+        <form class="rsvp-form glass-card reveal" data-reveal id="rsvp-form" novalidate>
+          <div class="rsvp-form__row">
+            <label for="rsvp-name">Your name</label>
+            <input type="text" id="rsvp-name" name="name" required autocomplete="name" placeholder="Full name" />
+          </div>
+          <div class="rsvp-form__row">
+            <label for="rsvp-phone">Phone number</label>
+            <input type="tel" id="rsvp-phone" name="phone" required autocomplete="tel" placeholder="e.g. +20 10 1234 5678" />
+          </div>
+          <div class="rsvp-form__row">
+            <label for="rsvp-guests">How many people</label>
+            <input type="number" id="rsvp-guests" name="guests" required min="1" max="20" placeholder="Number attending (including you)" />
+          </div>
+          <div class="rsvp-form__row">
+            <label for="rsvp-message">A few lovely words</label>
+            <textarea id="rsvp-message" name="message" rows="4" placeholder="Wish us well, share a memory, or tell us about any dietary notes…"></textarea>
+          </div>
+          <input type="hidden" name="access_key" value="" id="web3forms-key" />
+          <input type="hidden" name="subject" value="Wedding RSVP — Sama & Medo" />
+          <input type="hidden" name="from_name" value="Sama & Medo Wedding Site" />
+          <button type="submit" class="btn btn--rsvp" id="rsvp-submit">
+            <span class="btn__text">Send</span>
+            <span class="btn__loader" aria-hidden="true"></span>
+          </button>
+          <p class="rsvp-form__hint" id="rsvp-hint">
+            To receive submissions by email, add your free Web3Forms key in <code class="inline-code">script.js</code> (<code class="inline-code">CONFIG.web3formsAccessKey</code>). Until then, the form will open your email app with your message.
+          </p>
+          <p class="rsvp-form__status" id="rsvp-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="footer__names">Sama <span class="footer__heart" aria-hidden="true">♥</span> Medo</p>
+        <p class="footer__meta">10 October 2027 · Alexandria</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    window.addEventListener("beforeunload", function () {
+      window.scrollTo(0, 0);
+    });
+
+    window.addEventListener("load", function () {
+      window.scrollTo(0, 0);
+
+      var welcome = document.getElementById("welcome-overlay");
+      var openButton = document.getElementById("welcome-open");
+      if (!welcome) return;
+
+      try {
+        localStorage.removeItem("samaMedoInvitationOpened-v1");
+      } catch (e) {}
+
+      welcome.setAttribute("aria-hidden", "false");
+      welcome.classList.add("is-visible");
+      document.body.classList.add("welcome-active");
+
+      if (openButton) {
+        openButton.addEventListener("click", function () {
+          welcome.classList.add("is-closing");
+          welcome.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("welcome-active");
+          setTimeout(function () {
+            welcome.classList.remove("is-visible", "is-closing");
+          }, 900);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
