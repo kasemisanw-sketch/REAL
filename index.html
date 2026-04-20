@@ -244,5 +244,14 @@ It wasn’t a big dramatic story, just small moments that kept adding up.
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+  localStorage.removeItem("accepted");
+});
+</script>
 </body>
 </html>
